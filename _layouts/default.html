@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  {% seo %}  <!-- 如果启用了 jekyll-seo-tag 插件，则生成基本 SEO 标签 -->
+
+  <!-- 引入自定义 CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- ─── 顶部导航栏 ─────────────────────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#about">简介</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#blog">博客</a></li>
+        <li><a href="#contact">联系方式</a></li>
+        <li><button id="theme-toggle" class="btn-toggle">切换主题</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ─── 正文内容区 ─────────────────────────────────────────────────────────── -->
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <!-- ─── Utterances 评论区（可选，首页也能评论） ─────────────────────────────── -->
+  <section id="comments">
+    <script src="https://utteranc.es/client.js"
+            repo="your-username/your-username.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </section>
+
+  <!-- ─── 页脚 ─────────────────────────────────────────────────────────────────── -->
+  <footer>
+    <p>© {{ "now" | date: "%Y" }} 高振源</p>
+  </footer>
+
+  <!-- ─── 主题切换脚本 ─────────────────────────────────────────────────────────── -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme') || 'light';
+      root.setAttribute('data-theme', saved);
+
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    });
+  </script>
+</body>
+</html>
