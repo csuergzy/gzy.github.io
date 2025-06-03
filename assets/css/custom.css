@@ -1,167 +1,239 @@
 /* assets/css/custom.css */
 
-/* ─── 主题颜色变量 ───────────────────────────────────────────────────────────── */
+/*—————————————————————————————————————————————
+  主题配色变量（变量名称可按需扩展）
+—————————————————————————————————————————————*/
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
   --link-color: #0066cc;
-  --nav-bg: #f9f9f9;
-  --nav-text: #333333;
-  --section-bg: #fdfdfd;
+  --nav-bg: #f5f5f5;
+  --card-bg: #fafafa;
+  --border-color: #e0e0e0;
+  --section-padding: 60px 20px;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 [data-theme="dark"] {
   --bg-color: #1e1e1e;
-  --text-color: #cccccc;
-  --link-color: #4facfe;
-  --nav-bg: #2c2c2c;
-  --nav-text: #f0f0f0;
-  --section-bg: #252525;
+  --text-color: #e0e0e0;
+  --link-color: #66aaff;
+  --nav-bg: #2b2b2b;
+  --card-bg: #2b2b2b;
+  --border-color: #444444;
+}
+
+/*—————————————————————————————————————————————
+  全局样式
+—————————————————————————————————————————————*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.6;
+  font-family: var(--font-base);
+  line-height: 1.7;
 }
 
-/* 通用链接样式 */
 a {
   color: var(--link-color);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-/* ─── 导航栏 ─────────────────────────────────────────────────────────────────── */
+/*—————————————————————————————————————————————
+  导航栏
+—————————————————————————————————————————————*/
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: var(--nav-bg);
-  padding: 1rem 0;
-  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.navbar {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .nav-list {
   list-style: none;
   display: flex;
-  justify-content: center;
+  align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 10px 20px;
 }
+
 .nav-list li {
-  margin: 0 1rem;
+  margin-right: 20px;
 }
+
 .nav-list a {
-  color: var(--nav-text);
   font-weight: 500;
+  color: var(--text-color);
 }
-.btn-toggle {
+
+.nav-list a:hover {
+  color: var(--link-color);
+}
+
+#theme-toggle {
   background: none;
-  border: 1px solid var(--nav-text);
-  border-radius: 4px;
-  padding: 0.2rem 0.6rem;
+  border: none;
+  font-size: 1.2rem;
   cursor: pointer;
-  color: var(--nav-text);
+  color: var(--text-color);
 }
 
-/* ─── 内容容器 ───────────────────────────────────────────────────────────────── */
-.container {
+/*—————————————————————————————————————————————
+  页面主体 & 分区样式
+—————————————————————————————————————————————*/
+.content {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  background-color: var(--section-bg);
-  border-radius: 8px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* ─── 个人简介（ABOUT） ─────────────────────────────────────────────────────── */
-.avatar {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 3px solid #ddd;
-  margin-bottom: 1rem;
+section {
+  padding: var(--section-padding);
 }
-.intro {
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
   text-align: center;
-  padding: 2rem 1rem;
+  position: relative;
 }
-.intro h1 {
-  margin: 0.5rem 0;
-  font-size: 2.5rem;
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--link-color);
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
 }
+
+/*—————————————————————————————————————————————
+  简介区（Intro）
+—————————————————————————————————————————————*/
+.intro-content {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--link-color);
+  object-fit: cover;
+}
+
 .badges {
-  margin-top: 1rem;
-}
-.badge {
-  margin: 0.3rem;
+  margin-top: 15px;
 }
 
-/* ─── 分区标题 ───────────────────────────────────────────────────────────────── */
-h2 {
-  border-bottom: 2px solid var(--link-color);
-  padding-bottom: 0.3rem;
-  margin-top: 2rem;
+.badges img.badge {
+  margin: 5px;
+  vertical-align: middle;
 }
 
-/* ─── 项目卡片式展示 ─────────────────────────────────────────────────────────── */
+/*—————————————————————————————————————————————
+  项目卡片（Projects）
+—————————————————————————————————————————————*/
 .project-card {
-  border: 1px solid #e0e0e0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  background-color: var(--bg-color);
-  transition: box-shadow 0.2s ease-in-out;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s;
 }
+
 .project-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.project-card img {
-  margin-top: 0.5rem;
-  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ─── Trending 列表 ─────────────────────────────────────────────────────────── */
-.trending {
-  background-color: var(--bg-color);
-  padding: 1rem;
-  border-radius: 6px;
-  margin-top: 1rem;
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-/* ─── 博客 & 联系方式 列表 ───────────────────────────────────────────────────── */
-#blog ul, #contact ul {
+/*—————————————————————————————————————————————
+  博客列表（Blog）
+—————————————————————————————————————————————*/
+.blog-list {
   list-style: none;
   padding: 0;
 }
-#blog li, #contact li {
-  margin-bottom: 0.8rem;
+
+.blog-list li {
+  margin-bottom: 10px;
 }
 
-/* ─── 页脚 ─────────────────────────────────────────────────────────────────── */
-footer {
+.blog-list a {
+  font-weight: 500;
+  color: var(--link-color);
+}
+
+.blog-list a:hover {
+  text-decoration: underline;
+}
+
+/*—————————————————————————————————————————————
+  联系方式（Contact）
+—————————————————————————————————————————————*/
+.contact-list {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.contact-list a {
+  color: var(--link-color);
+}
+
+/*—————————————————————————————————————————————
+  页脚
+—————————————————————————————————————————————*/
+.footer {
   text-align: center;
-  padding: 1rem 0;
-  color: var(--text-color);
+  padding: 20px 0;
   font-size: 0.9rem;
-  margin-top: 2rem;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--nav-bg);
 }
 
-/* ─── 响应式处理 ───────────────────────────────────────────────────────────── */
+/*—————————————————————————————————————————————
+  响应式支持（简易示例，可根据需要扩展）
+—————————————————————————————————————————————*/
 @media (max-width: 600px) {
   .nav-list {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .nav-list li {
-    margin: 0.5rem 0;
+    margin-right: 10px;
+    margin-bottom: 5px;
   }
-  .container {
-    margin: 1rem;
-    padding: 1rem;
-  }
-  .intro h1 {
-    font-size: 2rem;
+  .project-card,
+  .content {
+    padding: 15px;
   }
 }
