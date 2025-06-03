@@ -1,18 +1,37 @@
 # _config.yml
-# 基本配置
-title: "高振源"
-description: "计算机科学学生 | AIGC & 机器学习爱好者"
-baseurl: ""         # 如果你的仓库名为 your-username.github.io，则保持为空
-url: "https://your-username.github.io"  # 修改为你的 GitHub Pages 地址
 
-# 主题配置（使用 GitHub 内置的 jekyll-theme-cayman）
-theme: jekyll-theme-cayman
+# ─── 基本站点信息 ────────────────────────────────────────────────────────────────
+title: "高振源个人主页"
+description: "中南大学计算机科学学生 | AIGC & 机器学习爱好者"
+baseurl: ""                                # 例如："" （如果仓库名为 your-username.github.io，这里保留空）
+url: "https://your-username.github.io"     # 修改为你的 GitHub Pages 地址
 
-# 其他可选配置
-author: "高振源"
-# 如果需要添加社交链接，可以解除下面注释并填写
-# social_links:
-#   - name: "GitHub"
-#     url: "https://github.com/your-username"
-#   - name: "Email"
-#     url: "mailto:gaozhenyuan38@gmail.com"
+# ─── 主题与插件 ─────────────────────────────────────────────────────────────────
+# 使用内置的 minima 主题，配合自定义布局/样式
+theme: minima
+
+# 启用 SEO 与 RSS 插件（你可以根据需要增删）
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# ─── Markdown 与布局默认值 ────────────────────────────────────────────────────────
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "高振源"
+      comments: true
+
+# ─── 其他可选配置 ─────────────────────────────────────────────────────────────────
+# 如果你想生成 sitemap，可以加下面这行（需要安装 jekyll-sitemap 插件）：
+# - jekyll-sitemap
+
+# 如果需要启用多语言支持等，可在这里补充
