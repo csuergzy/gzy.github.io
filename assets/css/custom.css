@@ -1,0 +1,167 @@
+/* assets/css/custom.css */
+
+/* ─── 主题颜色变量 ───────────────────────────────────────────────────────────── */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --nav-bg: #f9f9f9;
+  --nav-text: #333333;
+  --section-bg: #fdfdfd;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --text-color: #cccccc;
+  --link-color: #4facfe;
+  --nav-bg: #2c2c2c;
+  --nav-text: #f0f0f0;
+  --section-bg: #252525;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* 通用链接样式 */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ─── 导航栏 ─────────────────────────────────────────────────────────────────── */
+header {
+  background-color: var(--nav-bg);
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-list li {
+  margin: 0 1rem;
+}
+.nav-list a {
+  color: var(--nav-text);
+  font-weight: 500;
+}
+.btn-toggle {
+  background: none;
+  border: 1px solid var(--nav-text);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  color: var(--nav-text);
+}
+
+/* ─── 内容容器 ───────────────────────────────────────────────────────────────── */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background-color: var(--section-bg);
+  border-radius: 8px;
+}
+
+/* ─── 个人简介（ABOUT） ─────────────────────────────────────────────────────── */
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  margin-bottom: 1rem;
+}
+.intro {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.intro h1 {
+  margin: 0.5rem 0;
+  font-size: 2.5rem;
+}
+.badges {
+  margin-top: 1rem;
+}
+.badge {
+  margin: 0.3rem;
+}
+
+/* ─── 分区标题 ───────────────────────────────────────────────────────────────── */
+h2 {
+  border-bottom: 2px solid var(--link-color);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+/* ─── 项目卡片式展示 ─────────────────────────────────────────────────────────── */
+.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--bg-color);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.project-card img {
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+/* ─── Trending 列表 ─────────────────────────────────────────────────────────── */
+.trending {
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+/* ─── 博客 & 联系方式 列表 ───────────────────────────────────────────────────── */
+#blog ul, #contact ul {
+  list-style: none;
+  padding: 0;
+}
+#blog li, #contact li {
+  margin-bottom: 0.8rem;
+}
+
+/* ─── 页脚 ─────────────────────────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ─── 响应式处理 ───────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .nav-list {
+    flex-direction: column;
+  }
+  .nav-list li {
+    margin: 0.5rem 0;
+  }
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .intro h1 {
+    font-size: 2rem;
+  }
+}
