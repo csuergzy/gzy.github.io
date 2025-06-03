@@ -49,7 +49,17 @@
     section h2{color:var(--primary);margin-bottom:1rem;}
     .timeline{border-left:3px solid var(--primary);padding-left:1rem;}
     .timeline-item{margin-bottom:1.5rem;position:relative;}
-    .timeline-item::before{content:"";position:absolute;left:-.65rem;top:0;width:1rem;height:1rem;background:var(--primary);border-radius:50%;}
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -0.4rem;   /* 根据圆点大小微调 */
+      top: 0.15rem;    /* 让圆点垂直居中，按需微调 */
+      width: 0.4rem;
+      height: 0.4rem;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
 
     /* ===== Projects（竖排 + 可放大）===== */
     .projects-grid{display:flex;flex-direction:column;gap:1.5rem;}
@@ -167,13 +177,7 @@
         <a href="https://github.com/yourname/zero-shot-transfer" target="_blank">查看代码 →</a>
       </article>
 
-      <!-- Project Card 2 -->
-      <article class="project-card">
-        <img src="jinrong.png" alt="Loan Default App Screenshot">
-        <h3>贷款违约预测交互式 App</h3>
-        <p>LightGBM + XGBoost + CatBoost stacking ⋯ Gradio 实时推理。</p>
-        <a href="https://github.com/yourname/loan-default-app" target="_blank">查看代码 →</a>
-      </article>
+     
     </div>
   </section>
 
@@ -185,7 +189,7 @@
         <div class="projects-grid">
           <article class="project-card">
             <img src="guojiang.png" alt="Loan Default App Screenshot">
-            <h3>证书 App</h3>
+            <h3>获奖证书</h3>
           </article>
         </div>
       <li>校级优秀学生干部 / 校三好学生</li>
@@ -195,8 +199,9 @@
   <!-- ===== Contact ===== -->
   <section id="contact">
     <h2>联系</h2>
-    <p>Email: <a href="mailto:yourname@csu.edu.cn">yourname@csu.edu.cn</a></p>
-    <p>GitHub: <a href="https://github.com/yourname" target="_blank">github.com/yourname</a></p>
+    <p>Phone: 15836731828</p>
+    <p>Email: <a href="mailto:gaozhenyuan38@gmail.com">gaozhenyuan38@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/csuergzy" target="_blank">https://github.com/csuergzy</a></p>
   </section>
 
   <footer>© 2025 高振源</footer>
