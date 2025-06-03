@@ -1,0 +1,18 @@
+# _config.yml
+# 基本配置
+title: "高振源"
+description: "计算机科学学生 | AIGC & 机器学习爱好者"
+baseurl: ""         # 如果你的仓库名为 your-username.github.io，则保持为空
+url: "https://your-username.github.io"  # 修改为你的 GitHub Pages 地址
+
+# 主题配置（使用 GitHub 内置的 jekyll-theme-cayman）
+theme: jekyll-theme-cayman
+
+# 其他可选配置
+author: "高振源"
+# 如果需要添加社交链接，可以解除下面注释并填写
+# social_links:
+#   - name: "GitHub"
+#     url: "https://github.com/your-username"
+#   - name: "Email"
+#     url: "mailto:gaozhenyuan38@gmail.com"
