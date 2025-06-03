@@ -184,10 +184,8 @@
       <li>国家奖学金</li>
         <div class="projects-grid">
           <article class="project-card">
-            <img src="jinrong.png" alt="Loan Default App Screenshot">
-            <h3>贷款违约预测交互式 App</h3>
-            <p>LightGBM + XGBoost + CatBoost stacking ⋯ Gradio 实时推理。</p>
-            <a href="https://github.com/yourname/loan-default-app" target="_blank">查看代码 →</a>
+            <img src="guojiang.png" alt="Loan Default App Screenshot">
+            <h3>证书 App</h3>
           </article>
         </div>
       <li>校级优秀学生干部 / 校三好学生</li>
@@ -208,7 +206,7 @@
     document.addEventListener('DOMContentLoaded',()=>{
     /* ---- 1. Hero 背景轮播 (已知 1.png ~ 8.png) ---- */
     const hero = document.getElementById('hero');
-    const imgs = Array.from({length:4},(_,i)=>`beijing/${i+1}.png`);
+    const imgs = Array.from({length:8},(_,i)=>`bj/${i+1}.png`);
     let idx = 0;
     hero.style.backgroundImage = `url(${imgs[0]})`;
     setInterval(()=>{
@@ -218,8 +216,8 @@
     /* ---- 2. 点击项目卡片放大 / 关闭 ---- */
     document.querySelectorAll('.project-card').forEach(card=>{
       card.addEventListener('click',()=>{
-        card.classList.toggle('enlarged');
-        document.body.classList.toggle('no-scroll', card.classList.contains('enlarged'));
+       
+        
       });
     });
   });
