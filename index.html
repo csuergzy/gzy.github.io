@@ -4,60 +4,91 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>高振源 | 个人主页</title>
+
+  <!-- 字体 -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --primary: #3AB5F9;
-      --accent:  #65D6CE;
-      --bg:      #F8FEFF;
-      --text:    #333333;
+    :root{
+      --primary:#3AB5F9;
+      --accent:#65D6CE;
+      --bg:#F8FEFF;
+      --text:#333;
     }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins','Noto Sans SC',sans-serif; }
-    body { background:var(--bg); color:var(--text); line-height:1.6; transition: filter .3s; }
-    
-    /* ===== Header & Avatar ===== */
-    .hero{background:var(--primary);color:#fff;padding:3rem 1rem 4rem;display:flex;flex-direction:column;align-items:center}
-    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0);margin-bottom:1rem}
-    .hero h1{font-size:2.5rem;margin-bottom:.5rem}
-    .hero p{font-size:1.2rem;opacity:.9}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins','Noto Sans SC',sans-serif;}
+    body{background:var(--bg);color:var(--text);line-height:1.6;transition:filter .3s;}
+
+    /* ===== Hero（轮播背景）===== */
+    .hero{
+      position:relative;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:5rem 1rem 6rem;
+      color:#fff;text-align:center;
+      background:#3AB5F9 center/cover no-repeat;
+      overflow:hidden;
+      transition:background-image 1s ease-in-out;
+    }
+    .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25);z-index:0;}
+    .hero>*{position:relative;z-index:1;}
+
+    .avatar{
+      width:140px;height:140px;border-radius:50%;object-fit:cover;
+      border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.12);margin-bottom:1rem;
+    }
+    .hero h1{font-size:2.5rem;margin-bottom:.5rem;}
+    .hero p{font-size:1.2rem;opacity:.9;max-width:90vw;}
 
     /* ===== Navigation ===== */
-    nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);z-index:10}
-    nav ul{max-width:960px;margin:auto;padding:.5rem 1rem;list-style:none;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
-    nav a{color:var(--text);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:1rem;transition:background .3s}
-    nav a:hover{background:var(--accent);color:#fff}
+    nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);z-index:10;}
+    nav ul{max-width:960px;margin:auto;padding:.5rem 1rem;list-style:none;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+    nav a{color:var(--text);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:1rem;transition:background .3s;}
+    nav a:hover{background:var(--accent);color:#fff;}
 
     /* ===== Sections ===== */
-    section{max-width:960px;margin:3rem auto;padding:0 1rem}
-    section h2{color:var(--primary);margin-bottom:1rem}
-    .timeline{border-left:3px solid var(--primary);padding-left:1rem}
-    .timeline-item{margin-bottom:1.5rem;position:relative}
-    .timeline-item::before{content:"";position:absolute;left:-.65rem;top:0;width:1rem;height:1rem;background:var(--primary);border-radius:50%}
+    section{max-width:960px;margin:3rem auto;padding:0 1rem;}
+    section h2{color:var(--primary);margin-bottom:1rem;}
+    .timeline{border-left:3px solid var(--primary);padding-left:1rem;}
+    .timeline-item{margin-bottom:1.5rem;position:relative;}
+    .timeline-item::before{content:"";position:absolute;left:-.65rem;top:0;width:1rem;height:1rem;background:var(--primary);border-radius:50%;}
 
-    /* ===== Projects Vertical ===== */
-    .projects-grid{display:flex;flex-direction:column;gap:1.5rem}
-    .project-card{background:#fff;border-radius:1.25rem;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;cursor:zoom-in;display:flex;flex-direction:column}
-    .project-card img{width:100%;object-fit:cover}
-    .project-card h3{margin:.75rem 1rem .5rem;color:var(--primary);font-size:1.1rem}
-    .project-card p{margin:0 1rem 1rem;font-size:.9rem;line-height:1.5;flex-grow:1}
-    .project-card a{margin:0 1rem 1.25rem;font-weight:600;color:var(--accent);text-decoration:none}
-    .project-card a:hover{text-decoration:underline}
+    /* ===== Projects（竖排 + 可放大）===== */
+    .projects-grid{display:flex;flex-direction:column;gap:1.5rem;}
+    .project-card{
+      background:#fff;border-radius:1.25rem;overflow:hidden;
+      box-shadow:0 4px 14px rgba(0,0,0,.06);
+      transition:transform .3s,box-shadow .3s;
+      cursor:zoom-in;display:flex;flex-direction:column;
+    }
+    .project-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.12);}
+    .project-card img{width:100%;object-fit:cover;}
+    .project-card h3{margin:.75rem 1rem .5rem;color:var(--primary);font-size:1.1rem;}
+    .project-card p{margin:0 1rem 1rem;font-size:.9rem;line-height:1.5;flex-grow:1;}
+    .project-card a{margin:0 1rem 1.25rem;font-weight:600;color:var(--accent);text-decoration:none;}
+    .project-card a:hover{text-decoration:underline;}
 
-    /* ===== Enlarged state ===== */
-    .project-card.enlarged{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);width:90%;max-width:620px;height:auto;z-index:1000;box-shadow:0 8px 28px rgba(0,0,0,.35);cursor:zoom-out}
-    .project-card.enlarged img{height:auto;max-height:70vh}
-    body.no-scroll{overflow:hidden}
+    /* 放大状态 */
+    .project-card.enlarged{
+      position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:90%;max-width:620px;z-index:1000;cursor:zoom-out;
+      box-shadow:0 8px 28px rgba(0,0,0,.35);
+    }
+    .project-card.enlarged img{height:auto;max-height:70vh;}
+    body.no-scroll{overflow:hidden;}
 
     /* ===== Footer ===== */
-    footer{background:var(--primary);color:#fff;text-align:center;padding:1rem;margin-top:3rem}
+    footer{background:var(--primary);color:#fff;text-align:center;padding:1rem;margin-top:3rem;}
 
     /* ===== Dark Mode ===== */
-    @media(prefers-color-scheme:dark){:root{--bg:#0F172A;--text:#E2E8F0}nav{background:#1E293B}nav a{color:var(--text)}}
+    @media(prefers-color-scheme:dark){
+      :root{--bg:#0F172A;--text:#E2E8F0;}
+      nav{background:#1E293B;}
+      nav a{color:var(--text);}
+    }
   </style>
 </head>
 <body>
   <!-- ===== Hero ===== -->
-  <header class="hero">
+  <header class="hero" id="hero">
     <img src="tx.png" alt="Avatar of Gao Zhenyuan" class="avatar">
     <h1>高振源</h1>
     <p>计算机科学 | 扩散模型 &amp; 风格迁移 | 数学建模竞赛爱好者</p>
@@ -88,9 +119,8 @@
     <div class="timeline">
       <div class="timeline-item">
         <h3>中南大学 — 计算机学院</h3>
-        <p>计算机科学拔尖学生培养基地班 (2022.09 – 2026.06 预计)</p>
-        <p>GPA: 90.88/100 | 排名: 3/28</p>
-        <p>主修：竞赛算法、高级计算机算法、离散数学等</p>
+        <p>计算机科学拔尖学生培养基地班 (2022 – 2026 预计)</p>
+        <p>GPA 90.88 / 排名 3/28</p>
       </div>
     </div>
   </section>
@@ -100,12 +130,12 @@
     <h2>科研经历</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <h3>Zero-shot 双域图像风格迁移算法</h3>
-        <p>提出两阶段风格注入 + 多模态自适应调节器，解决内容泄露与风格匹配错误 (2025.01 – 今)</p>
+        <h3>Zero-shot 双域图像风格迁移</h3>
+        <p>提出两阶段风格注入 + 多模态自适应调节器，解决内容泄露与风格匹配错误 (2025 – 今)</p>
       </div>
       <div class="timeline-item">
-        <h3>文献调研与复现</h3>
-        <p>阅读并复现 5+ 篇扩散模型/风格迁移论文，完成消融实验 (2024.06 – 2025.01)</p>
+        <h3>扩散模型文献复现</h3>
+        <p>复现 5+ 篇论文并完成消融实验 (2024 – 2025)</p>
       </div>
     </div>
   </section>
@@ -116,33 +146,33 @@
     <div class="timeline">
       <div class="timeline-item">
         <h3>MathorCup 应用挑战赛 — 全国一等奖</h3>
-        <p>QUBO 优化，融合量子退火与贪心剪枝，动态压缩变量 60% (2024.04)</p>
+        <p>QUBO 优化：量子退火 + 贪心剪枝 (2024.04)</p>
       </div>
       <div class="timeline-item">
-        <h3>MCM/ICM 美国大学生数学建模竞赛 — Meritorious Winner</h3>
-        <p>Great Lakes 水位调控：PCA + 有限差分 + NSGA-II 多目标优化 (2024.01)</p>
+        <h3>MCM/ICM 数学建模 — Meritorious Winner</h3>
+        <p>PCA + 有限差分 + NSGA-II 多目标优化 (2024.01)</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Projects (Vertical) ===== -->
+  <!-- ===== Projects ===== -->
   <section id="projects">
     <h2>项目展示</h2>
     <div class="projects-grid">
       <!-- Project Card 1 -->
       <article class="project-card">
-        <img src="keyan.png" alt="Zero-shot Transfer Demo">
+        <img src="tx.png" alt="Zero-shot Transfer Demo">
         <h3>Zero-shot 双域风格迁移</h3>
         <p>两阶段风格注入 + 自适应调节器；有效解决内容泄露与风格错配。</p>
-        <a href="https://www.xiaohongshu.com/explore" target="_blank">查看代码 →</a>
+        <a href="https://github.com/yourname/zero-shot-transfer" target="_blank">查看代码 →</a>
       </article>
 
       <!-- Project Card 2 -->
       <article class="project-card">
-        <img src="jinrong.png" alt="Loan Default App Screenshot">
+        <img src="tx.png" alt="Loan Default App Screenshot">
         <h3>贷款违约预测交互式 App</h3>
         <p>LightGBM + XGBoost + CatBoost stacking ⋯ Gradio 实时推理。</p>
-        <a href="https://www.xiaohongshu.com/explore" target="_blank">查看代码 →</a>
+        <a href="https://github.com/yourname/loan-default-app" target="_blank">查看代码 →</a>
       </article>
     </div>
   </section>
@@ -151,35 +181,59 @@
   <section id="honors">
     <h2>荣誉奖项</h2>
     <ul>
-      <li>国家奖学金 (2023–2024)</li>
-      <li>中南大学一等奖学金 (2023–2024)</li>
-      <li>中南大学优秀学生 (2023–2024)</li>
+      <li>国家奖学金</li>
+      <li>校级优秀学生干部 / 校三好学生</li>
     </ul>
   </section>
 
   <!-- ===== Contact ===== -->
   <section id="contact">
-    <h2>联系我</h2>
-    <p>邮箱: <a href="mailto:gaozhenyuan38@gmail.com">gaozhenyuan38@gmail.com</a></p>
-    <p>手机: +86 158-9318-1337</p>
+    <h2>联系</h2>
+    <p>Email: <a href="mailto:yourname@csu.edu.cn">yourname@csu.edu.cn</a></p>
+    <p>GitHub: <a href="https://github.com/yourname" target="_blank">github.com/yourname</a></p>
   </section>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>© 2025 高振源. 使用 MIT License 开源。</p>
-  </footer>
+  <footer>© 2025 高振源</footer>
 
-  <!-- ===== Enlarge Script ===== -->
+  <!-- ===== JavaScript ===== -->
   <script>
-    const body = document.body;
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', e => {
-        // prevent link immediate navigation when enlarged
-        if(card.classList.contains('enlarged') && e.target.tagName === 'A') return;
+  document.addEventListener('DOMContentLoaded',()=>{
+    /* ---- 1. Hero 背景轮播（自动读取 beijing/ 内全部图片） ---- */
+    const hero = document.getElementById('hero');
+
+    /* 推断用户名与仓库名（适用于 <username>.github.io 或项目页） */
+    const user = location.hostname.split('.')[0];
+    let   repo = location.hostname.endsWith('github.io') ? `${user}.github.io` : location.pathname.split('/')[1] || '';
+    /* 若是个人主页根目录则 repo = <user>.github.io；若是 project pages 则取 path 第一段 */
+
+    const api  = `https://api.github.com/repos/${user}/${repo}/contents/beijing`;
+
+    fetch(api)
+      .then(r => r.json())
+      .then(list => {
+        /* 过滤出图片并取 download_url */
+        const imgs = (Array.isArray(list) ? list : [])
+                     .filter(f => f.type==='file' && /\.(png|jpe?g|gif|webp)$/i.test(f.name))
+                     .map(f => f.download_url);
+
+        if(!imgs.length) return;          // 没有图片则保持默认蓝色
+        let idx = 0;
+        hero.style.backgroundImage = `url(${imgs[0]})`;
+        setInterval(()=>{
+          idx = (idx + 1) % imgs.length;
+          hero.style.backgroundImage = `url(${imgs[idx]})`;
+        }, 8000);                          // 每 8 秒切换
+      })
+      .catch(err => console.warn('背景轮播加载失败:', err));
+
+    /* ---- 2. 点击项目卡片放大 / 关闭 ---- */
+    document.querySelectorAll('.project-card').forEach(card=>{
+      card.addEventListener('click',()=>{
         card.classList.toggle('enlarged');
-        body.classList.toggle('no-scroll', card.classList.contains('enlarged'));
+        document.body.classList.toggle('no-scroll', card.classList.contains('enlarged'));
       });
     });
+  });
   </script>
 </body>
 </html>
