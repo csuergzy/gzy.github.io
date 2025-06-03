@@ -39,7 +39,7 @@ title: 高振源
       <li>技术栈：Python、PyTorch、Stable Diffusion、CLIP</li>
       <li>🔗 <a href="https://github.com/your-username/zero-shot-style-transfer" target="_blank">项目链接</a></li>
     </ul>
-    <img src="assets/images/style-demo.gif" alt="风格迁移演示" width="300">
+    <img src="assets/images/tx.png" alt="风格迁移演示" width="300">
   </div>
 
   <div class="project-card">
@@ -49,7 +49,7 @@ title: 高振源
       <li>技术栈：Python、LightGBM、XGBoost、CatBoost、scikit-learn</li>
       <li>🔗 <a href="https://github.com/your-username/loan-default-stacking" target="_blank">项目链接</a></li>
     </ul>
-    <img src="assets/images/stacking-demo.png" alt="Stacking 模型演示" width="300">
+    <img src="assets/images/tx.png" alt="Stacking 模型演示" width="300">
   </div>
 
   <!-- 动态 Trending 列表（每晚自动更新） -->
