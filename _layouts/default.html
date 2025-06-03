@@ -7,10 +7,12 @@
 
     <title>{{ page.title }} | {{ site.title }}</title>
 
-    <!-- 自定义 CSS -->
+    <!-- 引入自定义 CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
-    <!-- 这里不再保留原先的 {{ "{% stylesheet %}" }} 声明，以避免 Liquid 解析错误 -->
+    <!-- 已移除导致 Liquid 解析错误的行 -->
+    <!-- {{ "{% stylesheet %}" }} -->
+
   </head>
 
   <body>
