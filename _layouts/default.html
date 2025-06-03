@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{{ page.title }} | {{ site.title }}</title>
 
-    <!-- 强制使用自定义 CSS -->
+    <!-- 自定义 CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
-    <!-- Jekyll 内置主题样式（Cayman）和我们自定义的 custom.css 会一起生效 -->
-    {{ "{% stylesheet %}" }}
+    <!-- 这里不再保留原先的 {{ "{% stylesheet %}" }} 声明，以避免 Liquid 解析错误 -->
   </head>
 
   <body>
@@ -39,7 +39,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         const toggle = document.getElementById("theme-toggle");
         const root = document.documentElement;
-        // 读取本地存储的配色偏好，默认 light
+        // 读取本地存储的主题偏好，默认 light
         const saved = localStorage.getItem("theme") || "light";
         root.setAttribute("data-theme", saved);
         if (saved === "dark") toggle.textContent = "☀️";
