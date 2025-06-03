@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | {{ site.title }}</title>
 
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  {% seo %}  <!-- 如果启用了 jekyll-seo-tag 插件，则生成基本 SEO 标签 -->
+    <!-- 强制使用自定义 CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
 
-  <!-- 引入自定义 CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-</head>
-<body>
+    <!-- Jekyll 内置主题样式（Cayman）和我们自定义的 custom.css 会一起生效 -->
+    {{ "{% stylesheet %}" }}
+  </head>
 
-  <!-- ─── 顶部导航栏 ─────────────────────────────────────────────────────────── -->
-  <header>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="#about">简介</a></li>
-        <li><a href="#projects">项目</a></li>
-        <li><a href="#blog">博客</a></li>
-        <li><a href="#contact">联系方式</a></li>
-        <li><button id="theme-toggle" class="btn-toggle">切换主题</button></li>
-      </ul>
-    </nav>
-  </header>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a href="#intro">简介</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#blog">博客</a></li>
+          <li><a href="#contact">联系方式</a></li>
+          <li><button id="theme-toggle" aria-label="切换主题">🌙</button></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- ─── 正文内容区 ─────────────────────────────────────────────────────────── -->
-  <main class="container">
-    {{ content }}
-  </main>
+    <main class="content">
+      {{ content }}
+    </main>
 
-  <!-- ─── Utterances 评论区（可选，首页也能评论） ─────────────────────────────── -->
-  <section id="comments">
-    <script src="https://utteranc.es/client.js"
-            repo="your-username/your-username.github.io"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-  </section>
+    <footer class="footer">
+      <p>© {{ site.time | date: '%Y' }} {{ site.author }}</p>
+    </footer>
 
-  <!-- ─── 页脚 ─────────────────────────────────────────────────────────────────── -->
-  <footer>
-    <p>© {{ "now" | date: "%Y" }} 高振源</p>
-  </footer>
+    <!-- 主题切换脚本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        // 读取本地存储的配色偏好，默认 light
+        const saved = localStorage.getItem("theme") || "light";
+        root.setAttribute("data-theme", saved);
+        if (saved === "dark") toggle.textContent = "☀️";
 
-  <!-- ─── 主题切换脚本 ─────────────────────────────────────────────────────────── -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
-      const root = document.documentElement;
-      const saved = localStorage.getItem('theme') || 'light';
-      root.setAttribute('data-theme', saved);
-
-      toggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
+        toggle.addEventListener("click", () => {
+          const current = root.getAttribute("data-theme");
+          const next = current === "light" ? "dark" : "light";
+          root.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+          toggle.textContent = next === "light" ? "🌙" : "☀️";
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
