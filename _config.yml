@@ -3,23 +3,25 @@
 # 站点基础配置
 title: "高振源的个人主页"
 description: "中南大学计算机科学学生 | AIGC & 机器学习爱好者"
-baseurl: ""                            # 如果仓库名是 your-username.github.io，保持空字符串
-url: "https://your-username.github.io" # 请替换为你的 GitHub Pages 地址
+baseurl: ""                             # GitHub Pages 仓库为 your-username.github.io 时保持空
+url: "https://your-username.github.io"  # 替换为你的实际地址
 
 # 作者信息
 author: "高振源"
 
-# 主题（我们会自定义 default.html 来覆盖主题布局，但保留 Jekyll 内置的基础样式）
+# 主题：Cayman，但我们会在 default.html 里加载自定义 CSS 覆盖部分样式
 theme: jekyll-theme-cayman
 
-# 插件（可自由增删）
+# 插件列表（根据需要可增删）
 plugins:
   - jekyll-sitemap
 
-# Markdown 解析器
+# 解析器
 markdown: kramdown
 
-# 指定要包含到发布中的静态文件夹
+# 允许将 custom.css 包含进构建
 include:
   - assets/css/custom.css
-future: true
+
+# 如果需要在本地预览时渲染“未来”日期的文章，可临时设置：
+# future: true
