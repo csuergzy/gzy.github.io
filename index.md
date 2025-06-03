@@ -9,7 +9,7 @@ title: "高振源的个人主页"
 <section id="intro">
   <h2 class="section-title">简介</h2>
   <div class="intro-content">
-    <!-- 头像：请将 tx.png 放在仓库根目录（和 index.md 同级） -->
+    <!-- 头像：请将 tx.png 放在仓库根目录 -->
     <img src="tx.png" alt="高振源头像" class="profile-pic" />
     <h3>高振源</h3>
     <p>中南大学计算机科学学生 | AIGC &amp; 机器学习爱好者</p>
@@ -36,7 +36,7 @@ title: "高振源的个人主页"
     <p>
       基于预训练扩散模型，设计两阶段风格注入与自适应调节器，
       实现抽象与具体风格的动态平衡，并在多个数据集上显著优于
-      传统方法。  
+      传统方法。
     </p>
     <p><strong>技术栈：</strong>Python / PyTorch / Stable Diffusion / CLIP</p>
     <p>
@@ -50,7 +50,7 @@ title: "高振源的个人主页"
     <p>
       基于 LightGBM、XGBoost 与 CatBoost 的多模型融合，并使用
       Logistic 回归作为元学习器，实现高精度预测。包括全面的
-      特征工程、5 折交叉验证与 OOF 构造。  
+      特征工程、5 折交叉验证与 OOF 构造。
     </p>
     <p><strong>技术栈：</strong>Python / LightGBM / XGBoost / CatBoost / scikit-learn</p>
     <p>
@@ -67,7 +67,6 @@ title: "高振源的个人主页"
 <section id="blog">
   <h2 class="section-title">博客</h2>
   <ul class="blog-list">
-    <!-- 使用 Jekyll 的循环列出最新 5 篇文章 -->
     {% for post in site.posts limit:5 %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
