@@ -22,8 +22,8 @@ title: 高振源
 ## 技能与技术
 
 - **编程语言**：Python、C++、Java  
-- **机器学习/深度学习**：TensorFlow、PyTorch、LightGBM、XGBoost、CatBoost  
-- **前端开发**：HTML、CSS、JavaScript  
+- **机器学习/深度学习**：PyTorch
+- **前端开发**：HTML、CSS  
 - **工具与平台**：Git、GitHub、Jupyter Notebook、Linux  
 
 ---
@@ -54,7 +54,7 @@ title: 高振源
 
 - 📧 邮箱：gaozhenyuan38@gmail.com  
 - 🌐 GitHub：[github.com/your-username](https://github.com/your-username)  
-- 🖥️ 个人博客：[your-blog.com](https://your-blog.com)（可选）
+
 
 ---
 
