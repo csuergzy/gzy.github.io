@@ -1,0 +1,48 @@
+# .github/workflows/update_trending.yml
+name: Update Trending Repos
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 UTC 00:00 触发
+  workflow_dispatch:     # 允许手动触发
+
+jobs:
+  fetch-trending:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 安装 jq 和 curl
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq curl
+
+      - name: Fetch Top 5 Trending Repos
+        run: |
+          echo "Fetching GitHub trending repositories..."
+          # 从第三方 API 获取过去一天的 trending 仓库
+          TRENDING_JSON=$(curl -s "https://gh-trending-api.herokuapp.com/repositories?since=daily")
+
+          # 使用 jq 提取前 5 条，格式化成“<li>1. [author/name](repo_url) - description</li>”
+          TRENDING_HTML=$(echo "$TRENDING_JSON" | jq -r '.[0:5] |
+            map("<li><a href=\"https://github.com/\(.author)/\(.name)\" target=\"_blank\">\(.author)/\(.name)</a> - \(.description)</li>")
+            | join("\n")'
+          )
+
+          echo "<ul>" > _includes/trending.md
+          echo "$TRENDING_HTML" >> _includes/trending.md
+          echo "</ul>" >> _includes/trending.md
+
+      - name: 提交并推送更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _includes/trending.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "自动更新 Trending 仓库列表"
+            git push
+          fi
