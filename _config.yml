@@ -1,37 +1,24 @@
 # _config.yml
 
-# ─── 基本站点信息 ────────────────────────────────────────────────────────────────
-title: "高振源个人主页"
+# 站点基础配置
+title: "高振源的个人主页"
 description: "中南大学计算机科学学生 | AIGC & 机器学习爱好者"
-baseurl: ""                                # 例如："" （如果仓库名为 your-username.github.io，这里保留空）
-url: "https://your-username.github.io"     # 修改为你的 GitHub Pages 地址
+baseurl: ""                            # 如果仓库名是 your-username.github.io，保持空字符串
+url: "https://your-username.github.io" # 请替换为你的 GitHub Pages 地址
 
-# ─── 主题与插件 ─────────────────────────────────────────────────────────────────
-# 使用内置的 minima 主题，配合自定义布局/样式
-theme: minima
+# 作者信息
+author: "高振源"
 
-# 启用 SEO 与 RSS 插件（你可以根据需要增删）
+# 主题（我们会自定义 default.html 来覆盖主题布局，但保留 Jekyll 内置的基础样式）
+theme: jekyll-theme-cayman
+
+# 插件（可自由增删）
 plugins:
-  - jekyll-seo-tag
-  - jekyll-feed
+  - jekyll-sitemap
 
-# ─── Markdown 与布局默认值 ────────────────────────────────────────────────────────
+# Markdown 解析器
 markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
 
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "高振源"
-      comments: true
-
-# ─── 其他可选配置 ─────────────────────────────────────────────────────────────────
-# 如果你想生成 sitemap，可以加下面这行（需要安装 jekyll-sitemap 插件）：
-# - jekyll-sitemap
-
-# 如果需要启用多语言支持等，可在这里补充
+# 指定要包含到发布中的静态文件夹
+include:
+  - assets/css/custom.css
