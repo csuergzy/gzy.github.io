@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "示例博文：如何搭建 Jekyll 个人主页"
-date: 2025-06-04 10:00:00 +0800
+date: 2025-06-03 10:00:00 +0800
 categories: [Jekyll, 教程]
 ---
 
