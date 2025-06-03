@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>高振源 | 个人主页</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3AB5F9;
+      --accent: #65D6CE;
+      --bg: #F8FEFF;
+      --text: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Noto Sans SC', sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { background: var(--primary); color: #fff; padding: 3rem 1rem; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+    nav { position: sticky; top: 0; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); z-index: 10; }
+    nav ul { display: flex; max-width: 960px; margin: auto; list-style: none; padding: 0.5rem 1rem; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    nav a { color: var(--text); text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border-radius: 1rem; transition: background 0.3s; }
+    nav a:hover { background: var(--accent); color: #fff; }
+    section { max-width: 960px; margin: 3rem auto; padding: 0 1rem; }
+    section h2 { color: var(--primary); margin-bottom: 1rem; }
+    .timeline { border-left: 3px solid var(--primary); padding-left: 1rem; }
+    .timeline-item { margin-bottom: 1.5rem; position: relative; }
+    .timeline-item::before { content: ''; position: absolute; left: -0.65rem; top: 0; width: 1rem; height: 1rem; background: var(--primary); border-radius: 50%; }
+    footer { background: var(--primary); color: #fff; text-align: center; padding: 1rem; margin-top: 3rem; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0F172A; --text: #E2E8F0; }
+      nav { background: #1E293B; }
+      nav a { color: var(--text); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>高振源</h1>
+    <p>计算机科学 | 扩散模型 &amp; 风格迁移 | 数学建模竞赛爱好者</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">关于我</a></li>
+      <li><a href="#education">教育</a></li>
+      <li><a href="#research">科研</a></li>
+      <li><a href="#competitions">竞赛</a></li>
+      <li><a href="#honors">荣誉</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>关于我</h2>
+    <p>你好！我是中南大学计算机科学拔尖班本科生，目前专业排名第 3/28，热衷于生成式 AI、扩散模型与零样本风格迁移研究，同时热爱算法竞赛与多目标优化。欢迎来到我的 GitHub 主页，一起探索有趣的计算机视觉与机器学习项目！</p>
+  </section>
+
+  <section id="education">
+    <h2>教育经历</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>中南大学 — 计算机学院</h3>
+        <p>计算机科学拔尖学生培养基地班 (2022.09 – 2026.06 预计)</p>
+        <p>GPA: 90.88/100 | 排名: 3/28</p>
+        <p>主修：竞赛算法、高级计算机算法、离散数学等</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>科研经历</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Zero‑shot 双域图像风格迁移算法</h3>
+        <p>提出两阶段风格注入 + 多模态自适应调节器，解决内容泄露与风格匹配错误 (2025.01 – 今)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>文献调研与复现</h3>
+        <p>阅读并复现 5+ 篇扩散模型/风格迁移论文，完成消融实验 (2024.06 – 2025.01)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="competitions">
+    <h2>竞赛经历</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>MathorCup 应用挑战赛 — 全国一等奖</h3>
+        <p>QUBO 优化，融合量子退火与贪心剪枝，动态压缩变量 60% (2024.04)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>MCM/ICM 美国大学生数学建模竞赛 — Meritorious Winner</h3>
+        <p>Great Lakes 水位调控：PCA + 有限差分 + NSGA‑II 多目标优化 (2024.01)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="honors">
+    <h2>荣誉奖项</h2>
+    <ul>
+      <li>国家奖学金 (2023–2024)</li>
+      <li>中南大学一等奖学金 (2023–2024)</li>
+      <li>中南大学优秀学生 (2023–2024)</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>联系我</h2>
+    <p>邮箱: <a href="mailto:gaozhenyuan38@gmail.com">gaozhenyuan38@gmail.com</a></p>
+    <p>手机: +86 158‑9318‑1337</p>
+  </section>
+
+  <footer>
+    <p>© 2025 高振源. 使用 MIT License 开源。</p>
+  </footer>
+</body>
+</html>
