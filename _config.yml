@@ -22,3 +22,4 @@ markdown: kramdown
 # 指定要包含到发布中的静态文件夹
 include:
   - assets/css/custom.css
+future: true
